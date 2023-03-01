@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spock Rock Game</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHsAewMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAwQBAgUGB//EADsQAAIBAwIEAgYIBAcBAAAAAAECAwAEERIhBTFBURNhIjJScYGhBhQzQmJykbFTgqKzIyQ0Q2PR4RX/xAAbAQEAAgMBAQAAAAAAAAAAAAAAAQQCAwUGB//EADMRAAIBAwIDBAkEAwEAAAAAAAABAgMEESExBRJBEzJR8AYiYXGBkaGx0RQzweFSsvE0/9oADAMBAAIRAxEAPwD6pV4rigFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAVIGaAZoBUAUAoBQCgFAKAUAoBQCgFAYJqQQ3N1DbIj3M0cKu2lNZ3kPZRzY+QBrXUqwprMmTGLlsQC/VlDR21+4P3vq4T5Oyn5VzpcZtIvHN9zd+mmbRcQtpJlhEpjmc6UiuI2iZzjOF1bMceyTVqje0K3ckYSpTiWlbPcEcxVs1m1QBQCgFAKAUAoBQCgFAKkFW+uTbQho4xLM7iOCItgSORnc9FABZjzwDgE4FVru5jb0nORnTg5vBi0sxC7TzP413IMSTsMEj2QPuqOij5nJPgru7q3U8z26I6kIKC0NJOK8PjkaN7uIOp06dW5PUDuR1A5VhG1rySag9dtDLniuoW64bxRHtkmtrpWTLRhg4K98fEVDpVqGJtOPt2IzGWhpC0lrdJZzO8kcgP1WZzlsgZMTHmTgEqeoVgdwCfV8H4m667Op3l5yUrijy6ovq2QCK75UNqgCgFAKAUAoBQCgFAYNSCl9pxYBtxb2wK/mkds/KNR8TXlfSKq8xp+fOpetI6ZMX8kP1zh1vdXRtoLiZlYrL4ZfEbMF1cxyztg7ds1zuEUKdas1UWcI3V5NLQg4Gl7cWHCJ7C3trm3tJZiszXXpSg601bJjJzk/GvVqKisLYpt5HhXlnd8PhvbJYVa4u3WSKQOmZGaQKdgQcZ6Y258q5fGYt2rx0aN1Dvk/GdS8MnmT7S3Xx4/wAyekP2rzllUdO4hJeP3LVRZiy6MCRwnq6jj3dK+jReYpnIe5tQgUAoBQCgFAKAUAoDDcqkFIf4fFhnYXFqFB/FGzZ+Ui/OvK+kVJ5jURetJaYHEDHFLZ3VxEJLeCUmcFdWEZSurHkSpPkCa5vCK8aVxiXVYN9eLcdC3fcEs+JXlrcQR4gkbxp5raYx+NhRoyVI1A7b9lA5bV60pEXELmK9vrWzsmDw2MheeRTlQwVlWPPVvSye2kZ51x+MXEYUXS6y+xuoxblkg41luGzwp9pcDwIx+J/RH7/I15+ypOpcQivH7Fmo8QZcBBlcr6uoge7pX0aKxFI5DeWb0AoBQCgFAKAUAoBQAipBUvrczxBUcRzI4khlK5EbgEZI6qQSpHYnrVa7to3NJwkZ05uEsi0vBLIYJk8G7QZeBjk49pT95ezD5HIHgbqyq2s8TWnidSFSM1oRnhPD215s4QHOWULgMeuQNjURvLiMeVTePeT2cW84J3e2sbbLGK3t4xjoqqOgrSlOpLC1bMtIorRCW6uUu5kaNEB+qwuuGBIwZWB3BwSFXmAWJ3IA9fwfhjoLtKnefnBz7itzaIvoukCu+yqbVAFAKAUAoBQCgGakGASzaUBY9gM1DaW4IZLu3ikMct1bI45o86A/pmsO1h4mThLwJWyFBYHS3Juh+NZqSezMWmtyC4tormMRzRpKinUoceoe6kbqfMEVhUpQqLEkTGTjsQiyCDTHcXyL7IuNfzdWPzrny4NaSeXH7/k3K5mZhsIIpVmWMtMpyss8jSup7rqOF/lAq1QsqFDuRNcqs5bstKvpYGWY9tyatM1ms1zDA+ieeCF/ZlmVT+hNYdrBdTLlkSajoEmMxnk6nKn4japUoy2ZGGtzYEHlWQFQBQCgFAKArX93DY2slzcFhFHjIQZZydgqj2idh/1USlj3kSlGEXObwlueSv7u64nkXj6IDys4mPhgfj/iH37dgK2QoLeerPH33Ha1VuNB8sfq/wAfAoCXh8OYRJaR6djGCox5YrbzQWmUcrsLua5+WT65w/mWLZHsXMnD5GtHJywiGEc/jT1W+Iz2I51E6MJewsWnFrq2axLK8Hqv6+B6jg/FFv43V0ENzDjxYgcqQeTofZPbmDt2JrrMXyyPaWl3Su6XaU/ivB+djqDesi0RzzRwxPLK4SKNSzvjOAPLqfLrWMpcqySll4RzmWe+Gq5MsFufVtUfSSP+VhuT+EHSOW/OsVDm1kdClbqKyyF2sOFxmOO0SKJIzLJ4EACxRjmzY5D/AN7GsnKMdDc5QhoyMx2SXxFtFNZ3DSmL61bJ4YaQJq0EjZsLk4YFenPasZckny9TCXZyfK9zoWl3IZ2trtVW4Cl1dBhJ0HMgfdYbZXzBHUAm4vlkUq1Fw2L6nIrYaDNQBQCgMNyqQeX+ksxl4lBbf7dvCJj5yPkA/BR/Wamiuao5eB530iuXCnCguur/AI8+w5mkySW8Qcp4txDEWXmA0iqcZ64JrbWk4wbRweFUIXF5CnUWU8/RNnegtY4OE+ABqEfDuJoGbGSBMo3rlttvLPo0IRhFRitFp8jlcTtIbHi1zbWqFIVEZVMk4JQZ59+dX7WTcHk8R6R04QuY8iSzHp72R2s/1TiFrd9EkEcnnG5CsD5cm96is7iOYZW6NPArl0rtQ6S0f8fU9ouVyjc1JB+Fa851Pb7FDiA8e6tLc/ZjNzIPaKkLGD5aize9BWvep7i3axy8k3n0raXylG0F5xlrAMWFzZT2znQdGohCF1YwWxqOM5xVau02irXabRU4RMb7gv0fnkUrJcyT3+G2IBBUA/CUCop6zyRS1qZL3Ew62puIRma1PjxebL0+Iyp8mNb5rMSxUjzRaOmpXUdByh3U/hO4+VTF5imch7m9SBUAUBhuVSDyXHhp43Nn78EMg92Cv7oayt9HJe08n6SQfa059MY+T/spx/6qyzt/nbb+8lZXH7bKHA//AH0/j/qz6JfW6xRrHacNiuGcOhDMI0VXOX1HBO57A5Ncw+hnkPpNw6eKa74lf3MdtNOFSztLUiQyyBcekzKPR2ycAYGTmt1Gc16sDj8TsrSoncXLeEsaPzqcSeNpYhCPXldIhjuzBR8zV+s8U3k8dwyDne01HxT+Wp75jqmmYci7EfrWiPdR9Be5zpvR4tETzktMKPySHP8AcWsI/uMvWj0aIeLFfAgDwtPG11ArxKoOtTIuRg8/dU1e4yxW7jIbeT6lOIGubTg8a8Qea0trmyYGTUrYwRIAc6mOAARjfkaplEtXEd1Dxq3t7qO2CQWbiF7ZCilWdMroJOkjSOpzmt9Ddli33ZtfSrBZXEz+rHEzH4DNWHsWZPCLdtEYI44W3aKKOM+9VAP7VhTWII48tyxWZAqAKAHlUg4n0isJLiCO4tkaS4tdR8NRlpYj6yqOrAgMB1wR1rHPJPn6dShxKy/WW/ZrvLVfj4nm8pcwAxSEq2GSRDuCDkEeYIB94q00pxx0Z4WnOpa1k9pRfU9HB9MeJR2/hy2FrPMNvFFw0YfzK6Dg+WTVJ2ss6M9bH0lt+T1oPm+GPv8AwcO5nuL27a7vpBLcMNI0jCxr7KjoPmTz6YtUqSpo87xHidS9nmWkVsi5wC0Nzdpflf8ALW7HwT/FmxjI7qoJ39rGPVNaqsu0lyLbqdzgXD5Ul+pqLDe3u8fwepRdKYoeiKnEbeSWNHtxm5gk8SFSca9sMn8w5dNQU9K1zTXrLobaNTkkV2KcQsi1vIY21Bkcr6UcikEZXuGG4PurJ4nHQ6bSnHQuLxdDdQXV/Y3a3cETxqkMYkjYsVyyt09XHpaedVnTkuhTdKaexXV57u8lvruPwXdRHHCGB8JASdyNtRJycbbAAnGTvpQ5VqWaVPkWpExF7deAvpW9u4a5bozDdYh5k4LdgN/WFJvm9RGu4qqMcI6kYO7McsdyfOthzjeoAoBQCgMMueRwe9SDkcR4Jb3crTxu9rcsctJEoZJD3dDsT5gqT1NYpSh3H8Cnd2Fvd/ux18Vv59+Tnf8AwL0Ha9snHtGORP6fS/es+1qf4/U479HKTelV/L+ye3+jsec39y12M/YxR+DGfJtyzfqoPUVjJ1JaN4XsL9rwe0t2pYcn7dvl/wBO7HHgKMABQFVVGAoHIAdBRJRWEdV5e5LQGGUMCDUgpXNkks/jq8kFwQAZosZcDkHU7N79j2NYOGHmLwbYVpQIhFfLsZrGU+0Uki/p9P8Aemai6FhXi6owbOeYlbq9/wAP+FaRmLPcGQknH5Qp86YqPfQwndt7F2GFIo0jjRY40GERBhVHlWUYqK0KrbbyycVIFQBQCgFAKAYqQY0jtQDGOVAZqAKAUAqQY0igGKAzUAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAf/2Q=="
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- Header -->
+      <div class="header">
+        <h1>Rock Paper Scissors Lizard Spock</h1>
+      </div>
+      <!-- player -->
+      <div class="player-container" id="player">
+        <h2>
+          You - <span id="playerScore">0</span>
+          <span class="choice" id="playerChoice"> --- Choice</span>
+        </h2>
+        <i class="far fa-hand-rock" title="rock" id="playerRock"></i>
+        <i class="far fa-hand-paper" title="Paper" id="playerPaper"></i>
+        <i
+          class="far fa-hand-scissors"
+          title="Scissors"
+          id="playerScissors"
+        ></i>
+        <i class="far fa-hand-lizard" title="lizard" id="playerlizard"></i>
+        <i class="far fa-hand-spock" title="Spock" id="playerSpock"></i>
+      </div>
+      <!-- computer player -->
+      <div class="player-container" id="computer">
+        <h2>
+          You - <span id="computerScore">0</span>
+          <span class="choice" id="computerChoice"> --- Choice</span>
+        </h2>
+        <i class="far fa-hand-rock" title="rock" id="computerRock"></i>
+        <i class="far fa-hand-paper" title="Paper" id="computerPaper"></i>
+        <i
+          class="far fa-hand-scissors"
+          title="Scissors"
+          id="computerScissors"
+        ></i>
+        <i class="far fa-hand-lizard" title="lizard" id="computerlizard"></i>
+        <i class="far fa-hand-spock" title="Spock" id="computerSpock"></i>
+      </div>
+      <!-- reset -->
+      <i class="fas fa-sync-alt reset-icon" title="Reset"></i>
+      <!-- Results Text -->
+      <div class="result-container">
+        <h3 class="result-text" id="resultText">You Won!</h3>
+      </div>
+    </div>
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
