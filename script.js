@@ -1,3 +1,5 @@
+import { startConfetti, stopConfetti, removeConfetti } from "./confetti.js";
+
 const playerScoreElem = document.getElementById("playerScore");
 const playerChoiceElem = document.getElementById("playerChoice");
 const computerScoreElem = document.getElementById("computerScore");
@@ -31,12 +33,64 @@ let playerScoreNumber = 0;
 let computerScoreNumber = 0;
 let computerChoice = "";
 
+// -------------------------
+
+// Pass computer selection value and style icons
+function select(playerChoice) {
+  checkResult(playerChoice);
+  // add selected styling and update player choice
+
+  switch (playerChoice) {
+    case "rock":
+      playerRock.classList.add("selected");
+      playerChoiceElem.textContent = " --- Rock";
+      break;
+    case "scissors":
+      playerScissors.classList.add("selected");
+      playerChoiceElem.textContent = " --- Scissors";
+      break;
+    case "paper":
+      playerPaper.classList.add("selected");
+      playerChoiceElem.textContent = " --- Paper";
+      break;
+    case "lizard":
+      playerLizard.classList.add("selected");
+      playerChoiceElem.textContent = " --- Lizard";
+      break;
+    case "spock":
+      playerSpock.classList.add("selected");
+      playerChoiceElem.textContent = " --- Spock";
+      break;
+
+    default:
+      break;
+  }
+}
+window.select = select;
+
 // reset all selected icon
 function resetSelected() {
   allGameIcons.forEach((icon) => {
     icon.classList.remove("selected");
   });
+  stopConfetti();
+
+  removeConfetti();
 }
+
+// reset scores and choices
+function resetAll() {
+  playerScoreNumber = 0;
+  computerScoreNumber = 0;
+  playerScoreElem.textContent = playerScoreNumber;
+  computerScoreElem.textContent = computerScoreNumber;
+  playerChoiceElem.textContent = "";
+  computerChoiceElem.textContent = "";
+  resultText.textContent = "";
+  resetSelected();
+}
+
+window.resetAll = resetAll;
 
 // -----------
 function computerRandomChoice() {
@@ -83,41 +137,37 @@ function displayComputerChoice() {
   }
 }
 
+// check result, increase scores, update result text
+function updateScore(playerChoice) {
+  console.log(playerChoice, computerChoice);
+  if (playerChoice === computerChoice) {
+    resultText.textContent = "It's a tie";
+  } else {
+    // from the choices object on line 22
+    const choice = choices[playerChoice];
+
+    // returns -1 if the computer choice is not in the defeat array
+    // console.log(choice.defeats.indexOf(computerChoice));
+    if (choice.defeats.indexOf(computerChoice) > -1) {
+      resultText.textContent = "You win!";
+      startConfetti();
+      playerScoreNumber++;
+      playerScoreElem.textContent = playerScoreNumber;
+    } else {
+      resultText.textContent = "You Lost!";
+      computerScoreNumber++;
+      computerScoreElem.textContent = computerScoreNumber;
+    }
+  }
+}
+
 // call all functions
-function checkResult() {
+function checkResult(playerChoice) {
   resetSelected();
   computerRandomChoice();
   displayComputerChoice();
+  updateScore(playerChoice);
 }
 
-// Pass computer selection value and style icons
-function select(playerChoice) {
-  checkResult();
-  // add selected styling and update player choice
-
-  switch (playerChoice) {
-    case "rock":
-      playerRock.classList.add("selected");
-      playerChoiceElem.textContent = " --- Rock";
-      break;
-    case "scissors":
-      playerScissors.classList.add("selected");
-      playerChoiceElem.textContent = " --- Scissors";
-      break;
-    case "paper":
-      playerPaper.classList.add("selected");
-      playerChoiceElem.textContent = " --- Paper";
-      break;
-    case "lizard":
-      playerLizard.classList.add("selected");
-      playerChoiceElem.textContent = " --- Lizard";
-      break;
-    case "spock":
-      playerSpock.classList.add("selected");
-      playerChoiceElem.textContent = " --- Spock";
-      break;
-
-    default:
-      break;
-  }
-}
+// on load
+resetAll();
