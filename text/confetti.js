@@ -1,13 +1,11 @@
 // animation
 // Confetti.js from https://www.cssscript.com/confetti-falling-animation/#google_vignette
-
 var maxParticleCount = 100; //set max confetti count
 var particleSpeed = 10; //set the particle animation speed
 var startConfetti; //call to start confetti animation
 var stopConfetti; //call to stop adding confetti
 var toggleConfetti; //call to start or stop the confetti animation depending on whether it's already running
 var removeConfetti; //call to stop the confetti animation and remove all confetti immediately
-
 startConfetti = startConfettiInner;
 stopConfetti = stopConfettiInner;
 toggleConfetti = toggleConfettiInner;
@@ -30,7 +28,6 @@ var streamingConfetti = false;
 var animationTimer = null;
 var particles = [];
 var waveAngle = 0;
-
 function resetParticle(particle, width, height) {
   particle.color = colors[(Math.random() * colors.length) | 0];
   particle.x = Math.random() * width;
@@ -41,7 +38,6 @@ function resetParticle(particle, width, height) {
   particle.tiltAngle = 0;
   return particle;
 }
-
 function startConfettiInner() {
   var width = window.innerWidth;
   var height = window.innerHeight;
@@ -93,21 +89,17 @@ function startConfettiInner() {
     })();
   }
 }
-
 function stopConfettiInner() {
   streamingConfetti = false;
 }
-
 function removeConfettiInner() {
   stopConfetti();
   particles = [];
 }
-
 function toggleConfettiInner() {
   if (streamingConfetti) stopConfettiInner();
   else startConfettiInner();
 }
-
 function drawParticles(context) {
   var particle;
   var x;
@@ -122,7 +114,6 @@ function drawParticles(context) {
     context.stroke();
   }
 }
-
 function updateParticles() {
   var width = window.innerWidth;
   var height = window.innerHeight;
@@ -148,7 +139,5 @@ function updateParticles() {
     }
   }
 }
-
 // -------------------
-
 export { startConfetti, stopConfetti, removeConfetti };

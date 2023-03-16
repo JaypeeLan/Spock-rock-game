@@ -1,27 +1,52 @@
 import { startConfetti, stopConfetti, removeConfetti } from "./confetti.js";
 
-const playerScoreElem = document.getElementById("playerScore");
-const playerChoiceElem = document.getElementById("playerChoice");
-const computerScoreElem = document.getElementById("computerScore");
-const computerChoiceElem = document.getElementById("computerChoice");
+// type startConfetti = () => void;
+const newConfetti = startConfetti();
 
-const resultText = document.getElementById("resultText");
+const playerScoreElem = document.getElementById("playerScore") as HTMLElement;
+const playerChoiceElem = document.getElementById("playerChoice") as HTMLElement;
+const computerScoreElem = document.getElementById(
+  "computerScore"
+) as HTMLElement;
+const computerChoiceElem = document.getElementById(
+  "computerChoice"
+) as HTMLElement;
 
-const computerRock = document.getElementById("computerRock");
-const computerPaper = document.getElementById("computerPaper");
-const computerScissors = document.getElementById("computerScissors");
-const computerLizard = document.getElementById("computerLizard");
-const computerSpock = document.getElementById("computerSpock");
+const resultText = document.getElementById("resultText") as HTMLElement;
 
-const playerRock = document.getElementById("playerRock");
-const playerPaper = document.getElementById("playerPaper");
-const playerScissors = document.getElementById("playerScissors");
-const playerLizard = document.getElementById("playerLizard");
-const playerSpock = document.getElementById("playerSpock");
+const computerRock = document.getElementById("computerRock") as HTMLElement;
+const computerPaper = document.getElementById("computerPaper") as HTMLElement;
+const computerScissors = document.getElementById(
+  "computerScissors"
+) as HTMLElement;
+const computerLizard = document.getElementById("computerLizard") as HTMLElement;
+const computerSpock = document.getElementById("computerSpock") as HTMLElement;
 
-const allGameIcons = document.querySelectorAll(".far");
+const playerRock = document.getElementById("playerRock") as HTMLElement;
+const playerPaper = document.getElementById("playerPaper") as HTMLElement;
+const playerScissors = document.getElementById("playerScissors") as HTMLElement;
+const playerLizard = document.getElementById("playerLizard") as HTMLElement;
+const playerSpock = document.getElementById("playerSpock") as HTMLElement;
 
-const choices = {
+const allGameIcons = document.querySelectorAll(".far")!;
+// --------------------------------------------
+declare global {
+  interface Window {
+    select: any;
+    resetAll: any;
+  }
+}
+
+interface Choices {
+  [key: string]: { name: string; defeats: string[] };
+  rock: { name: string; defeats: string[] };
+  paper: { name: string; defeats: string[] };
+  scissors: { name: string; defeats: string[] };
+  lizard: { name: string; defeats: string[] };
+  spock: { name: string; defeats: string[] };
+}
+// ---------------------------------------------------
+const choices: Choices = {
   rock: { name: "Rock", defeats: ["scissors", "lizard"] },
   paper: { name: "Paper", defeats: ["rock", "spock"] },
   scissors: { name: "Scissors", defeats: ["paper", "lizard"] },
@@ -29,14 +54,12 @@ const choices = {
   spock: { name: "Spock", defeats: ["scissors", "rock"] },
 };
 
-let playerScoreNumber = 0;
-let computerScoreNumber = 0;
-let computerChoice = "";
-
-// -------------------------
+let playerScoreNumber: number;
+let computerScoreNumber: number;
+let computerChoice: string = "";
 
 // Pass computer selection value and style icons
-function select(playerChoice) {
+function select(playerChoice: string) {
   checkResult(playerChoice);
   // add selected styling and update player choice
 
@@ -82,8 +105,8 @@ function resetSelected() {
 function resetAll() {
   playerScoreNumber = 0;
   computerScoreNumber = 0;
-  playerScoreElem.textContent = playerScoreNumber;
-  computerScoreElem.textContent = computerScoreNumber;
+  playerScoreElem.textContent = `${playerScoreNumber}`;
+  computerScoreElem.textContent = `${computerScoreNumber}`;
   playerChoiceElem.textContent = "";
   computerChoiceElem.textContent = "";
   resultText.textContent = "";
@@ -138,13 +161,18 @@ function displayComputerChoice() {
 }
 
 // check result, increase scores, update result text
-function updateScore(playerChoice) {
-  console.log(playerChoice, computerChoice);
+function updateScore(playerChoice: string) {
+  //   console.log(playerChoice, computerChoice);
   if (playerChoice === computerChoice) {
     resultText.textContent = "It's a tie";
   } else {
-    // from the choices object on line 22
-    const choice = choices[playerChoice];
+    // from the choices object on line 45
+
+    interface choice {
+      name: string;
+      defeats: string[];
+    }
+    const choice: choice = choices[playerChoice];
 
     // returns -1 if the computer choice is not in the defeat array
     // console.log(choice.defeats.indexOf(computerChoice));
@@ -152,17 +180,17 @@ function updateScore(playerChoice) {
       resultText.textContent = "You win!";
       startConfetti();
       playerScoreNumber++;
-      playerScoreElem.textContent = playerScoreNumber;
+      playerScoreElem.textContent = `${playerScoreNumber}`;
     } else {
       resultText.textContent = "You Lost!";
       computerScoreNumber++;
-      computerScoreElem.textContent = computerScoreNumber;
+      computerScoreElem.textContent = `${computerScoreNumber}`;
     }
   }
 }
 
 // call all functions
-function checkResult(playerChoice) {
+function checkResult(playerChoice: string) {
   resetSelected();
   computerRandomChoice();
   displayComputerChoice();
